@@ -1,5 +1,7 @@
 #include "libft.h"
 
+#include <stdio.h>
+
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {
   size_t i;
@@ -7,11 +9,12 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 
   i = 0;
   temp = dest;
-  while (i++ < n)
+  while (i < n)
   {
     *temp = *((const unsigned char *)src);
     temp++;
     src++;
+    i++;
   }
   return (dest);
 }
