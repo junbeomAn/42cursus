@@ -1,2 +1,5 @@
 *.exe
 main_*.c
+libft-unit-test/
+*.o
+*.a
