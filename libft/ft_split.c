@@ -1,7 +1,6 @@
 #include "libft.h"
-#include <stdio.h>
 
-static int get_word_cnt(char const *str, char sep)
+static int  get_word_cnt(char const *str, char sep)
 {
 	int cnt;
 	int i;
@@ -23,7 +22,7 @@ static int get_word_cnt(char const *str, char sep)
 
 static char **free_on_error(char **mem_block)
 {
-    unsigned int i;
+    unsigned int    i;
 
     i = 0;
     while (mem_block[i])
@@ -33,11 +32,11 @@ static char **free_on_error(char **mem_block)
     return (NULL);
 }
 
-char **put_str_to_array(char **res, char const *str, char sep, int *index)
+char        **put_str_to_array(char **res, char const *str, char sep, int *index)
 {
-    unsigned int i;
-    unsigned int start;
-    char *element;
+    unsigned int    i;
+    unsigned int    start;
+    char            *element;
 
     i = 0;
     while (str[i])
@@ -59,11 +58,11 @@ char **put_str_to_array(char **res, char const *str, char sep, int *index)
     return (res);
 }
 
-char **ft_split(char const *s, char c)
+char        **ft_split(char const *s, char c)
 {
-    int word_cnt;
-    int index;
-    char **result;
+    int     word_cnt;
+    int     index;
+    char    **result;
 
     if (!s)
         return (NULL);

@@ -1,12 +1,10 @@
 #include "libft.h"
 
-#include <stdio.h>
-
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    size_t len;
-    char *new_str;
-    unsigned int i;
+    size_t          len;
+    char            *new_str;
+    unsigned int    i;
 
     if (!s || !f)
         return (NULL);

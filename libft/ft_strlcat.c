@@ -1,9 +1,9 @@
 #include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t  ft_strlcat(char *dst, const char *src, size_t size)
 {
-  size_t i;
-  unsigned int res;
+  size_t        i;
+  unsigned int  res;
 
   i = 0;
   res = 0;

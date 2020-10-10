@@ -1,9 +1,9 @@
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char  *ft_strchr(const char *s, int c)
 {
-  char target;
-  char *from;
+  char  target;
+  char  *from;
 
   target = (char)c;
   from = (char *)s;

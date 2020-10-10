@@ -1,7 +1,5 @@
 #include "libft.h"
 
-#include <stdio.h>
-
 int ft_isspace(char c)
 {
   if (c == ' ' || c == '\n' || c == '\t'

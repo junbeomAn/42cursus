@@ -1,10 +1,10 @@
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char  *ft_strrchr(const char *s, int c)
 {
-  int rear;
-  char *from;
-  char target;
+  int   rear;
+  char  *from;
+  char  target;
 
   rear = (int)(ft_strlen(s) - 1);
   from = (char *)s;

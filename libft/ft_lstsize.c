@@ -2,8 +2,8 @@
 
 int ft_has_cycle(t_list *lst)
 {
-    t_list *fast;
-    t_list *slow;
+    t_list  *fast;
+    t_list  *slow;
 
     if (!lst)
         return (0);
@@ -21,9 +21,9 @@ int ft_has_cycle(t_list *lst)
 
 int ft_cyclesize(t_list *lst)
 {
-    t_list *start;
-    t_list *curr;
-    int size;
+    t_list  *start;
+    t_list  *curr;
+    int     size;
 
     if (!lst)
         return (0);
@@ -40,8 +40,8 @@ int ft_cyclesize(t_list *lst)
 
 int ft_lstsize(t_list *lst)
 {
-    int cnt;
-    t_list *curr;
+    int     cnt;
+    t_list  *curr;
 
     if (!lst)
         return (0);

@@ -2,7 +2,7 @@
 
 void    ft_lstclear(t_list **lst, void (*del)(void*))
 {
-    t_list *next;
+    t_list  *next;
     
     if (!lst || !del)
         return ;
@@ -13,5 +13,5 @@ void    ft_lstclear(t_list **lst, void (*del)(void*))
         free(*lst);
         *lst = next;
     }
-    *lst = NULL;   
+    *lst = NULL;
 }
