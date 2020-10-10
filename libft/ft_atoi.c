@@ -18,7 +18,7 @@ int ft_isnum(char c)
 int ft_atoi(const char *nptr)
 {
   int sign;
-  int res;
+  unsigned long long res;
   int i;
 
   i = 0;
@@ -31,6 +31,10 @@ int ft_atoi(const char *nptr)
   while (nptr[i] && ft_isnum(nptr[i]))
   {
     res = (res * 10) + (nptr[i] - 48);
+	if (res >= 9223372036854775807 && sign == 1)
+		return (-1);
+	else if (res > 9223372036854775807 && sign == -1)
+		return (0);
     i++;
   }  
   return (res * sign);

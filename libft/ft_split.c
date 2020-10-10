@@ -25,7 +25,7 @@ static char **free_on_error(char **mem_block)
     unsigned int    i;
 
     i = 0;
-    while (mem_block[i])
+    while (mem_block && mem_block[i])
         free(mem_block[i++]);
     free(mem_block);
     mem_block = NULL;
@@ -64,7 +64,7 @@ char        **ft_split(char const *s, char c)
     int     index;
     char    **result;
 
-    if (!s)
+    if (!s || !c)
         return (NULL);
     word_cnt = get_word_cnt(s, c);
     if (!(result = (char **)malloc(sizeof(char *) * (word_cnt + 1))))
