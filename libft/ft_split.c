@@ -55,6 +55,7 @@ char        **put_str_to_array(char **res, char const *str, char sep, int *index
         }
         i++;
     }
+	res[*index] = NULL;
     return (res);
 }
 
@@ -64,7 +65,7 @@ char        **ft_split(char const *s, char c)
     int     index;
     char    **result;
 
-    if (!s || !c)
+    if (!s)
         return (NULL);
     word_cnt = get_word_cnt(s, c);
     if (!(result = (char **)malloc(sizeof(char *) * (word_cnt + 1))))
@@ -72,6 +73,6 @@ char        **ft_split(char const *s, char c)
     index = 0;
     if (!(result = put_str_to_array(result, s, c, &index)))
         return (free_on_error(result));
-    result[index] = 0;
+    result[index] = NULL;
     return (result);
 }
