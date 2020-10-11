@@ -18,7 +18,8 @@ char  *ft_strnstr(const char *haystack, const char *needle, size_t n)
     if (large[i] == small[j])
     {
       if (ft_memcmp(haystack + i, needle, ft_strlen(needle)) == 0)
-        return (large + i);
+		  if (i + ft_strlen(needle) <= n)
+			  return (large + i);
     }
     i++;
   }
