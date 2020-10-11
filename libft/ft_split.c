@@ -39,14 +39,16 @@ char        **put_str_to_array(char **res, char const *str, char sep, int *index
     unsigned int    i;
     unsigned int    start;
     char            *element;
+	unsigned int	len;
 
     i = 0;
-    while (str[i] && i < ft_strlen(str))
+	len = (unsigned int)ft_strlen(str);
+    while (str[i] && i < len)
     {
-        if (str[i] && i < ft_strlen(str) && (str[i] != sep))
+        if (str[i] && i < len && (str[i] != sep))
         {
             start = i;
-			while (str[i] && i < ft_strlen(str) && (str[i] != sep))
+			while (str[i] && i < len && (str[i] != sep))
                 i++;
             if (!(element = ft_substr(str, start, i - start)))
             {
