@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 14:12:10 by juan              #+#    #+#             */
-/*   Updated: 2020/10/12 14:12:10 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/12 17:46:48 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	put_num(int fd, int n)
 
 	if (n == 0)
 		return ;
-	put_num(fd, _abs(n / 10));
+	put_num(fd, ft_abs(n / 10));
 	c = ft_abs(n % 10) + '0';
 	write(fd, &c, 1);
 }
