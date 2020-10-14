@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 15:23:31 by juan              #+#    #+#             */
-/*   Updated: 2020/10/12 15:23:31 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/14 22:07:36 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 static int	get_word_cnt(char const *str, char sep)
 {
 	int	cnt;
-	int	i;
+	int len;
+	int i;
 
 	cnt = 0;
 	i = 0;
-	while (str[i])
+	len = ft_strlen(str);
+	while (i < len)
 	{
-		if (str[i] && (sep != str[i]))
+		if (i < len && (sep != str[i]))
 		{
 			cnt++;
-			while (str[i] && (sep != str[i]))
+			while (i < len && (sep != str[i]))
 				i++;
 		}
 		i++;
@@ -44,7 +46,7 @@ static char	**free_on_error(char **mem_block)
 	return (NULL);
 }
 
-char		**put_substr(char **res, char const *str, char sep, int *index)
+static char	**put_substr(char **res, char const *str, char sep, int *index)
 {
 	unsigned int	i;
 	unsigned int	start;
@@ -52,13 +54,13 @@ char		**put_substr(char **res, char const *str, char sep, int *index)
 	unsigned int	len;
 
 	i = 0;
-	len = (unsigned int)ft_strlen(str);
-	while (str[i] && i < len)
+	len = ft_strlen(str);
+	while (i < len)
 	{
-		if (str[i] && i < len && (str[i] != sep))
+		if (i < len && (str[i] != sep))
 		{
 			start = i;
-			while (str[i] && i < len && (str[i] != sep))
+			while (i < len && (str[i] != sep))
 				i++;
 			if (!(element = ft_substr(str, start, i - start)))
 			{

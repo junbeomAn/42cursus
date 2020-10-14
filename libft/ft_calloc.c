@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 13:38:13 by juan              #+#    #+#             */
-/*   Updated: 2020/10/12 13:38:13 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/14 20:21:00 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	int		*ptr;
-	size_t	i;
+	char	*ptr;
 
-	if (!(ptr = (int *)malloc(num * size)))
+	if (!(ptr = (char *)malloc(num * size)))
 		return (NULL);
-	i = 0;
-	while (i < num * size)
-		ptr[i++] = 0;
-	return (void *)ptr;
+	ft_memset(ptr, 0, size * num);
+	return (ptr);
 }

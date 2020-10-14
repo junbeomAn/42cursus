@@ -4,3 +4,5 @@ libft-unit-test/
 *.o
 *.a
 libftest/
+war/
+war-old/
