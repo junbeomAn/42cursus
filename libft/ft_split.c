@@ -21,12 +21,12 @@ static int	get_word_cnt(char const *str, char sep)
 	cnt = 0;
 	i = 0;
 	len = ft_strlen(str);
-	while (i < len)
+	while (i < len && str[i])
 	{
-		if (i < len && (sep != str[i]))
+		if (i < len && str[i] && (sep != str[i]))
 		{
 			cnt++;
-			while (i < len && (sep != str[i]))
+			while (i < len && str[i] && (sep != str[i]))
 				i++;
 		}
 		i++;
