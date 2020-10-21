@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:36:52 by juan              #+#    #+#             */
-/*   Updated: 2020/10/16 15:36:52 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/21 20:44:33 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char *get_first_line(char *history)
 	int i;
 
 	i = 0;
-	// printf("%s \n", history);
 	if (!history)
 		return (ft_strdup("\0"));
 	while (history[i] != '\0' && (history[i] != '\n'))
@@ -83,5 +82,7 @@ int	get_next_line(int fd, char **line)
 	temp = read_history;
 	read_history = update_history(read_history);
 	free(temp);
-	return (*line[0] != '\0' || read_history[0] != '\0' ? 1 : 0);
+	if (bytes_read == 0)
+		return (0);
+	return (1);
 }

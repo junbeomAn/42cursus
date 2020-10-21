@@ -7,3 +7,5 @@ libftest/
 war/
 war-old/
 gnl-*/
+get_next_line/main*.c
+get_next_line/*.txt

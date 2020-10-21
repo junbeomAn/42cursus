@@ -9,8 +9,7 @@ int main()
   char *c;
 
   fd = open("testfile.txt", O_RDONLY);
-//   if (fd < 0) { perror("r1"); exit(1); }
-	while (sz = get_next_line(fd, &c))
+	while ((sz = get_next_line(fd, &c)))
 	{
 		printf("%s\n", c);
 		free(c);
