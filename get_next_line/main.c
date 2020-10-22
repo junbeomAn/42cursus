@@ -9,10 +9,23 @@ int main()
   char *c;
 
   fd = open("testfile.txt", O_RDONLY);
-	while ((sz = get_next_line(fd, &c)))
+	while ((sz = get_next_line(fd, &c)) > 0)
 	{
-		printf("%s\n", c);
+		printf("%s %d\n", c, sz);
 		free(c);
 	}
-	free(c);
+  	/*sz = get_next_line(fd, &c);
+  	printf("%s %d\n", c, sz);
+  	sz = get_next_line(fd, &c);
+	printf("%s %d\n", c, sz);
+  	sz = get_next_line(fd, &c);
+	printf("%s %d\n", c, sz);
+  	sz = get_next_line(fd, &c);
+	printf("%s %d\n", c, sz);
+	sz = get_next_line(fd, &c);
+	printf("%s %d\n", c, sz);
+	sz = get_next_line(fd, &c);
+	printf("%s %d\n", c, sz);
+
+	free(c);*/
 }

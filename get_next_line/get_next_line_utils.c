@@ -2,10 +2,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
-	while (s && s[len])
+	if (s == NULL)
+		return (len);
+	while (s[len] != '\0')
 		len++;
 	return (len);
 }
@@ -64,7 +66,7 @@ char	*ft_strdup(const char *s)
 	len = ft_strlen(s);
 	if (!(dup = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	dup = ft_memcpy(dup, (const void *)s, len);
+	ft_memcpy(dup, (const void *)s, len);
 	dup[len] = '\0';
 	return (dup);
 }

@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:36:52 by juan              #+#    #+#             */
-/*   Updated: 2020/10/21 20:44:33 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/22 23:00:56 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	if (!(buffer = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
-	while (!ft_strchr(read_history, '\n') && (bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	bytes_read = 1;
+	while (!(ft_strchr(read_history, '\n')) && ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0))
 	{
 		buffer[bytes_read] = '\0';
 		read_history = ft_strjoin(read_history, buffer);
@@ -82,7 +83,5 @@ int	get_next_line(int fd, char **line)
 	temp = read_history;
 	read_history = update_history(read_history);
 	free(temp);
-	if (bytes_read == 0)
-		return (0);
-	return (1);
+	return (bytes_read == 0 ? 0 : 1);
 }
