@@ -6,11 +6,11 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:38:47 by juan              #+#    #+#             */
-/*   Updated: 2020/10/25 20:38:47 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/25 20:52:00 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {

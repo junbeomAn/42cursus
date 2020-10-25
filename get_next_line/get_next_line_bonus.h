@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:41:35 by juan              #+#    #+#             */
-/*   Updated: 2020/10/25 20:41:35 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/25 20:51:24 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <unistd.h>
 # include <limits.h>
 
-# ifndef
+# ifndef OPEN_MAX
 #  define OPEN_MAX 1024
 # endif
 
-# ifndef
+# ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 50
 # endif
 

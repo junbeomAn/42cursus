@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:36:50 by juan              #+#    #+#             */
-/*   Updated: 2020/10/16 15:36:50 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/25 20:50:57 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <limits.h>
 
-# ifndef
+# ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 50
 # endif
 
