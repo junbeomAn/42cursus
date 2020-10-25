@@ -12,9 +12,6 @@
 
 #include "get_next_line.h"
 
-#include <stdio.h>
-
-
 char	*ft_strchr(const char *s, int c)
 {
 	char	target;
@@ -31,40 +28,50 @@ char	*ft_strchr(const char *s, int c)
 	return (*from ? from : NULL);
 }
 
-char *get_first_line(char *history)
+int		find_first_lb(char *str)
 {
 	int i;
 
 	i = 0;
+	while (str[i] != '\0' && (str[i] != '\n'))
+		i++;
+	return (i);
+}
+
+char	*get_first_line(char *history)
+{
+	int	i;
+
+	i = 0;
 	if (!history)
 		return (ft_strdup("\0"));
-	while (history[i] != '\0' && (history[i] != '\n'))
-		i++;
+	i = find_first_lb(history);
 	if (history[i] == '\0')
 		return (ft_strdup(history));
 	return (ft_substr(history, 0, i));
 }
 
-char *update_history(char *history)
+char	*update_history(char *history)
 {
-	int i;
+	int		i;
+	char	*result;
 
 	i = 0;
 	if (!history)
 		return (ft_strdup("\0"));
-	while (history[i] != '\0' && (history[i] != '\n'))
-		i++;
+	i = find_first_lb(history);
 	if (history[i] == '\0')
 		return (ft_strdup("\0"));
-	return (ft_strdup(history + i + 1));
+	result = ft_strdup(history + i + 1);
+	free(history);
+	return (result);
 }
 
-int	get_next_line(int fd, char **line)
+int		get_next_line(int fd, char **line)
 {
 	static char		*read_history;
 	char			*buffer;
 	int				bytes_read;
-	char			*temp;
 
 	if (!line || fd < 0 || BUFFER_SIZE < 0)
 		return (-1);
@@ -80,8 +87,6 @@ int	get_next_line(int fd, char **line)
 	if (bytes_read == -1)
 		return (-1);
 	*line = get_first_line(read_history);
-	temp = read_history;
 	read_history = update_history(read_history);
-	free(temp);
 	return (bytes_read == 0 ? 0 : 1);
 }
