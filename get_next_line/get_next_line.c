@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:36:52 by juan              #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:00 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/25 11:42:13 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ char	*get_first_line(char *history)
 char	*update_history(char *history)
 {
 	int		i;
-	char	*result;
 
 	i = 0;
 	if (!history)
@@ -62,9 +61,7 @@ char	*update_history(char *history)
 	i = find_first_lb(history);
 	if (history[i] == '\0')
 		return (ft_strdup("\0"));
-	result = ft_strdup(history + i + 1);
-	free(history);
-	return (result);
+	return (ft_strdup(history + i + 1));
 }
 
 int		get_next_line(int fd, char **line)
@@ -72,6 +69,7 @@ int		get_next_line(int fd, char **line)
 	static char		*read_history;
 	char			*buffer;
 	int				bytes_read;
+	char			*temp;
 
 	if (!line || fd < 0 || BUFFER_SIZE <= 0)
 		return (-1);
@@ -87,6 +85,8 @@ int		get_next_line(int fd, char **line)
 	if (bytes_read == -1)
 		return (-1);
 	*line = get_first_line(read_history);
+	temp = read_history;
 	read_history = update_history(read_history);
+	free(temp);
 	return (bytes_read == 0 ? 0 : 1);
 }
