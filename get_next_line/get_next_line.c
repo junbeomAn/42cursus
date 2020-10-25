@@ -76,7 +76,7 @@ int		get_next_line(int fd, char **line)
 	if (!(buf = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
 	res = 1;
-	while (!ft_strchr(record, '\n') && ((res = read(fd, buf, BUFFER_SIZE) > 0)))
+	while (!ft_strchr(record, '\n') && (res = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[res] = '\0';
 		record = ft_strjoin(record, buf);
