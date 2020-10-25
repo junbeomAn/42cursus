@@ -66,27 +66,27 @@ char	*update_history(char *history)
 
 int		get_next_line(int fd, char **line)
 {
-	static char		*read_history;
-	char			*buffer;
-	int				bytes_read;
+	static char		*history;
+	char			*buf;
+	int				res;
 	char			*temp;
 
 	if (!line || fd < 0 || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buffer = (char *)malloc(BUFFER_SIZE + 1)))
+	if (!(buf = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
-	bytes_read = 1;
-	while (!(ft_strchr(read_history, '\n')) && ((bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0))
+	res = 1;
+	while (!ft_strchr(history, '\n') && (res = read(fd, buf, BUFFER_SIZE) > 0))
 	{
-		buffer[bytes_read] = '\0';
-		read_history = ft_strjoin(read_history, buffer);
+		buf[res] = '\0';
+		history = ft_strjoin(history, buf);
 	}
-	free(buffer);
-	if (bytes_read == -1)
+	free(buf);
+	if (res == -1)
 		return (-1);
-	*line = get_first_line(read_history);
-	temp = read_history;
-	read_history = update_history(read_history);
+	*line = get_first_line(history);
+	temp = history;
+	history = update_history(history);
 	free(temp);
-	return (bytes_read == 0 ? 0 : 1);
+	return (res == 0 ? 0 : 1);
 }
