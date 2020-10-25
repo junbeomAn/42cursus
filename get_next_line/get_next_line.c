@@ -38,35 +38,35 @@ int		find_first_lb(char *str)
 	return (i);
 }
 
-char	*get_first_line(char *history)
+char	*get_first_line(char *record)
 {
 	int	i;
 
 	i = 0;
-	if (!history)
+	if (!record)
 		return (ft_strdup("\0"));
-	i = find_first_lb(history);
-	if (history[i] == '\0')
-		return (ft_strdup(history));
-	return (ft_substr(history, 0, i));
+	i = find_first_lb(record);
+	if (record[i] == '\0')
+		return (ft_strdup(record));
+	return (ft_substr(record, 0, i));
 }
 
-char	*update_history(char *history)
+char	*update_record(char *record)
 {
 	int		i;
 
 	i = 0;
-	if (!history)
+	if (!record)
 		return (ft_strdup("\0"));
-	i = find_first_lb(history);
-	if (history[i] == '\0')
+	i = find_first_lb(record);
+	if (record[i] == '\0')
 		return (ft_strdup("\0"));
-	return (ft_strdup(history + i + 1));
+	return (ft_strdup(record + i + 1));
 }
 
 int		get_next_line(int fd, char **line)
 {
-	static char		*history;
+	static char		*record;
 	char			*buf;
 	int				res;
 	char			*temp;
@@ -76,17 +76,17 @@ int		get_next_line(int fd, char **line)
 	if (!(buf = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
 	res = 1;
-	while (!ft_strchr(history, '\n') && (res = read(fd, buf, BUFFER_SIZE) > 0))
+	while (!ft_strchr(record, '\n') && ((res = read(fd, buf, BUFFER_SIZE) > 0)))
 	{
 		buf[res] = '\0';
-		history = ft_strjoin(history, buf);
+		record = ft_strjoin(record, buf);
 	}
 	free(buf);
 	if (res == -1)
 		return (-1);
-	*line = get_first_line(history);
-	temp = history;
-	history = update_history(history);
+	*line = get_first_line(record);
+	temp = record;
+	record = update_record(record);
 	free(temp);
 	return (res == 0 ? 0 : 1);
 }
