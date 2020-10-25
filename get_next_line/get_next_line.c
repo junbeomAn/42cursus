@@ -6,7 +6,7 @@
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:36:52 by juan              #+#    #+#             */
-/*   Updated: 2020/10/22 23:00:56 by juan             ###   ########.fr       */
+/*   Updated: 2020/10/23 00:17:00 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	get_next_line(int fd, char **line)
 	int				bytes_read;
 	char			*temp;
 
-	if (!line || fd < 0 || BUFFER_SIZE < 0)
+	if (!line || fd < 0 || BUFFER_SIZE <= 0)
 		return (-1);
 	if (!(buffer = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);
