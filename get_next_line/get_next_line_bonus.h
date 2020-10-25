@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 15:36:50 by juan              #+#    #+#             */
-/*   Updated: 2020/10/16 15:36:50 by juan             ###   ########.fr       */
+/*   Created: 2020/10/25 20:41:35 by juan              #+#    #+#             */
+/*   Updated: 2020/10/25 20:41:35 by juan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_GET_NEXT_LINE_H
-# define INCLUDE_GET_NEXT_LINE_H
+#ifndef INCLUDE_GET_NEXT_LINE_BONUS_H
+# define INCLUDE_GET_NEXT_LINE_BONUS_H
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+
+# ifndef
+#  define OPEN_MAX 1024
+# endif
 
 # ifndef
 #  define BUFFER_SIZE 50
