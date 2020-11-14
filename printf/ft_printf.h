@@ -13,11 +13,11 @@ typedef struct	s_fmtstr
 {
 	int			minus;
 	int			zero_pad;
-	int			astrsk;
 	int			width;
 	int			precision;
 	int			p_width;
 	int			length;
+	int			zero_pad_ignrd;
 }				t_fmtstr;
 
 int ft_printf(const char *fmt, ...);
