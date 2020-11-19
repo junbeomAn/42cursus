@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 
+
 void	zero_init(char *arr)
 {
 	int i;
@@ -147,6 +148,7 @@ void print(const char *a, ...)
 // 	blank = NULL;
 // }
 
+
 int main(void)
 {
 	// printf("%d %z ", 42, 50);
@@ -163,8 +165,10 @@ int main(void)
 	// 	c1 = "(null";
 	// width > precision
 	// a = printf("%.*d", 7, 1234);
-
-
+	// ft_putnbr_base(140732751947680, "0123456789abcdef");
+	ft_puthex_lower((long)140732751947680, 16);
+	// printf("%ld\n", ((long)140732751947680)/16/16/16/16/16/16/16/16/16/16/16);
+	//7ffee5b027a0
 
 	// printf("%ld\n", k /16/16/16/16/16/16/16/16/16/16/16/16);
 	// a = 2147483650;
@@ -173,7 +177,7 @@ int main(void)
 	// a = printf("%020.19x\n", (unsigned int)3147483649 );
 	// print("abc", -3);
 	// printf("\n%d\n", a);
-	printf("%-6.d", 0);
+
 }
 
 

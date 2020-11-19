@@ -47,7 +47,7 @@ int handle_hexdecimal(va_list vl, t_fmtstr *t, int ret, char x)
 	int blank_len;
 
 	ud = (unsigned int)va_arg(vl, unsigned int);
-	*char_hex = ft_itoa_base(ud, 16);
+	char_hex = ft_itoa_base(ud, 16);
 	num_len = ft_strlen(char_hex);
 	precision_zero_pad = t->precision - num_len;
 	blank_len = get_blank_len(t, num_len);

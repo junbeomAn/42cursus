@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-int handle_width(char *fmt, int i, t_fmtstr *t, va_list vl)
+int handle_width(const char *fmt, int i, t_fmtstr *t, va_list vl)
 {
 	while (('0' <= fmt[i] && fmt[i] <= '9') || fmt[i] == '*')
 	{

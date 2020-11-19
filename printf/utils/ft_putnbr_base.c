@@ -1,7 +1,5 @@
 #include "../ft_printf.h"
 
-#include <stdio.h>
-
 void	zero_init(char *arr)
 {
 	int i;

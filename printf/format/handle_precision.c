@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-int handle_precision(char *fmt, int i, t_fmtstr *t, va_list vl)
+int handle_precision(const char *fmt, int i, t_fmtstr *t, va_list vl)
 {
 	while (fmt[i] == '.')
 	{

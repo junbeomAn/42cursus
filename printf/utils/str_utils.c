@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include <unistd.h>
 
 int is_empty_str(const char *str)
 {
@@ -23,16 +23,6 @@ int		get_address_len(intptr_t n, int base)
 		i++;
 	}
 	return (i);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s && s[len])
-		len++;
-	return (len);
 }
 
 char *lower_case(char *str)

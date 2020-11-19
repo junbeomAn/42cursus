@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-int	handle_flag(char *fmt, int i, t_fmtstr *t)
+int	handle_flags(const char *fmt, int i, t_fmtstr *t)
 {
 	while (fmt[i] == '0' || fmt[i] == '-')
 	{

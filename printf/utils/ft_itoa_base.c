@@ -1,13 +1,8 @@
-#include "ft_printf.h"
-
-long	_abs(long n)
-{
-	return (n > 0 ? n : -n);
-}
+#include "../ft_printf.h"
 
 int		get_num_len(long n, int base)
 {
-	return (1 + (_abs(n / base) > 0 ? get_num_len(n / base, base) : 0));
+	return (1 + (ft_abs(n / base) > 0 ? get_num_len(n / base, base) : 0));
 }
 
 char	*ft_itoa_base(long n, int base)
@@ -25,7 +20,7 @@ char	*ft_itoa_base(long n, int base)
 	i = 0;
 	while (i < len)
 	{
-		digit = _abs(n % base);
+		digit = ft_abs(n % base);
 		char_num[len - 1 - i] = (digit > 9 ? 'a' + digit - 10 : '0' + digit);
 		n /= base;
 		i++;
