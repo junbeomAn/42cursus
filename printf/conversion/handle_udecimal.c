@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:25:55 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 13:28:35 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/24 01:10:14 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	get_blank_len(t_fmtstr *t, int num_len)
 
 static int	view_l_align(t_fmtstr *t, char *s)
 {
-	int ret;
+	int	ret;
 	int	blank_len;
 	int	num_len;
 	int	precision_zero_pad;
@@ -40,7 +40,7 @@ static int	view_l_align(t_fmtstr *t, char *s)
 
 static int	view_r_align(t_fmtstr *t, char *s)
 {
-	int ret;
+	int	ret;
 	int	blank_len;
 	int	num_len;
 	int	precision_zero_pad;
