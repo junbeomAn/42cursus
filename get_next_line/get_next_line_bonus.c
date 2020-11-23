@@ -71,7 +71,7 @@ int		get_next_line(int fd, char **line)
 	int				res;
 	char			*temp;
 
-	if (!line || fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX < 0)
+	if (!line || fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX <= 0)
 		return (-1);
 	if (!(buf = (char *)malloc(BUFFER_SIZE + 1)))
 		return (-1);

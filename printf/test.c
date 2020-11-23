@@ -165,8 +165,8 @@ int main(void)
 	// 	c1 = "(null";
 	// width > precision
 	// a = printf("%.*d", 7, 1234);
-	ft_putnbr_base(140732751947680, "0123456789abcdef");
-
+	// ft_putnbr_base(140732751947680, "0123456789abcdef");
+	printf("%");
 	// printf("%ld\n", ((long)140732751947680)/16/16/16/16/16/16/16/16/16/16/16);
 	//7ffee5b027a0
 
