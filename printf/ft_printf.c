@@ -6,11 +6,17 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 10:38:52 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 10:38:53 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 16:18:15 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void init_info(t_fmtstr *t)
+{
+	ft_bzero(t, sizeof(t_fmtstr));
+	t->precision = -1;
+}
 
 int	handle_fmt_string(const char *fmt, t_fmtstr *t, va_list vl)
 {
@@ -28,6 +34,7 @@ int	handle_fmt_string(const char *fmt, t_fmtstr *t, va_list vl)
 			i = handle_width(fmt, i, t, vl);
 			i = handle_precision(fmt, i, t, vl);
 			ret += controller(fmt[i], t, vl);
+			init_info(t);
 		}
 		else
 			ret += ft_putchar(fmt[i]);
@@ -47,8 +54,7 @@ int	ft_printf(const char *fmt, ...)
 	fmtlen = ft_strlen(fmt);
 	if (!(t = (t_fmtstr *)malloc(sizeof(t_fmtstr))))
 		return (-1);
-	ft_bzero(t, sizeof(t_fmtstr));
-	t->precision = -1;
+	init_info(t);
 	if (is_empty_str(fmt))
 		return (-1);
 	if (fmtlen == 1 && fmt[0] == '%')
