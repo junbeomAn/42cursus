@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:10:31 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 11:11:02 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 20:45:40 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				base_convert(intptr_t nbr, char *base, unsigned int len)
 	int			ret;
 
 	if (!nbr)
-		return (0);
+		return (1);
 	ret = 0;
 	div = nbr / len;
 	mod = nbr % len;
