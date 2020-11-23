@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:10:31 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 20:45:40 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 20:53:15 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				base_convert(intptr_t nbr, char *base, unsigned int len)
 	int			ret;
 
 	if (!nbr)
-		return (1);
+		return (0);
 	ret = 0;
 	div = nbr / len;
 	mod = nbr % len;
@@ -71,7 +71,7 @@ int				ft_putnbr_base(intptr_t nbr, char *base)
 	if (!len)
 		return (0);
 	if (nbr == 0)
-		write(1, "0", 1);
+		return (write(1, "0", 1));
 	if (nbr < 0)
 		write(1, "-", 1);
 	return (base_convert(nbr, base, len));
