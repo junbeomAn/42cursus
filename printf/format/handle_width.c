@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:12:51 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 11:12:52 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 19:12:35 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	handle_width(const char *fmt, int i, t_fmtstr *t, va_list vl)
 			{
 				t->minus = 1;
 				t->width = ft_abs(t->width);
+				t->zero_pad = 0;
 			}
 		}
 		else
