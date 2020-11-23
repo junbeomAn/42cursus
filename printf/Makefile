@@ -1,23 +1,23 @@
 .SUFFIXES : .c .o
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -g3 -fsanitize=address -c -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra
 
 RM = rm -f
 
 AR = ar
 
-ARFLAGS = crs
+ARFLAGS = -crs
 
 MAIN_FILES = ft_printf controller
 
 CONVERSION_FILES = handle_char \
 				handle_decimal \
 				handle_hexdecimal \
-				handle_precent \
+				handle_percent \
 				handle_pointer \
 				handle_str \
 				handle_udecimal
@@ -34,27 +34,39 @@ UTIL_FILES = extra_utils \
 
 FILES = $(MAIN_FILES) \
 		$(addprefix conversion/, $(CONVERSION_FILES)) \
-		$(addprefix format/, $(FORMAT_FILES))
+		$(addprefix format/, $(FORMAT_FILES)) \
 		$(addprefix utils/, $(UTIL_FILES))
 
 SRCS = $(addsuffix .c, $(FILES))
 
 OBJS = $(addsuffix .o, $(FILES))
 
+LIBFT = ./libft/libft.a
+
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(AR) $(ARFLAGS) $@ $(OBJS)
+	$(AR) -q $(LIBFT) $(OBJS)
+	cp $(LIBFT) $(NAME)
+
 # works same internally, but specifying is better.
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	$(AR) $@ $(OBJS)
-
-all: $(NAME)
+$(LIBFT):
+	$(MAKE) -C ./libft all
 
 re: fclean all
 
 clean:
+		$(MAKE) -C ./libft clean
 		$(RM) $(OBJS)
 
 fclean: clean
+		$(MAKE) -C ./libft fclean
 		$(RM) $(NAME)
+
 .PHONY: all re clean fclean
+

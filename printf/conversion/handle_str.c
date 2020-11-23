@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_str.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 11:24:56 by junbeoman         #+#    #+#             */
+/*   Updated: 2020/11/23 11:25:46 by junbeoman        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 static int	get_print_len(t_fmtstr *t, int str_len)
@@ -8,9 +20,9 @@ static int	get_print_len(t_fmtstr *t, int str_len)
 		return (str_len);
 }
 
-static int view_l_align(t_fmtstr *t, char *print_str, int print_len)
+static int	view_l_align(t_fmtstr *t, char *print_str, int print_len)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	ret += ft_putstr(print_str);
@@ -18,9 +30,9 @@ static int view_l_align(t_fmtstr *t, char *print_str, int print_len)
 	return (ret);
 }
 
-static int view_r_align(t_fmtstr *t, char *print_str, int print_len)
+static int	view_r_align(t_fmtstr *t, char *print_str, int print_len)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	ret += ft_put_blank(t->width - print_len, 0);
@@ -28,11 +40,11 @@ static int view_r_align(t_fmtstr *t, char *print_str, int print_len)
 	return (ret);
 }
 
-int	handle_str(va_list vl, t_fmtstr *t, int ret)
+int			handle_str(va_list vl, t_fmtstr *t, int ret)
 {
-	char *s;
-	char *print_str;
-	int print_len;
+	char	*s;
+	char	*print_str;
+	int		print_len;
 
 	s = (char *)va_arg(vl, char *);
 	if (s == NULL)
@@ -46,7 +58,7 @@ int	handle_str(va_list vl, t_fmtstr *t, int ret)
 		else
 			ret += view_r_align(t, print_str, print_len);
 	}
-	else // no space for blank so no align is applied.
+	else
 		ret += ft_putstr(print_str);
 	free(print_str);
 	return (ret);

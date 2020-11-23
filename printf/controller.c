@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   controller.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 10:38:49 by junbeoman         #+#    #+#             */
+/*   Updated: 2020/11/23 10:38:50 by junbeoman        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int controller(char spec, t_fmtstr *t, va_list vl)
+int	controller(char spec, t_fmtstr *t, va_list vl)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	if (spec == 'c' || spec == 'C')

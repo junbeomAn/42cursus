@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   str_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 11:11:09 by junbeoman         #+#    #+#             */
+/*   Updated: 2020/11/23 11:11:10 by junbeoman        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int is_empty_str(const char *str)
+int		is_empty_str(const char *str)
 {
 	if (!str[0])
 	{
@@ -25,7 +37,7 @@ int		get_address_len(intptr_t n, int base)
 	return (i);
 }
 
-char *lower_case(char *str)
+char	*lower_case(char *str)
 {
 	int i;
 
@@ -39,7 +51,7 @@ char *lower_case(char *str)
 	return (str);
 }
 
-char *upper_case(char *str)
+char	*upper_case(char *str)
 {
 	int i;
 

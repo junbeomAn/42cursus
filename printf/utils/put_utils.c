@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   put_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 11:10:27 by junbeoman         #+#    #+#             */
+/*   Updated: 2020/11/23 11:10:28 by junbeoman        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 int	ft_putchar(char c)
@@ -5,7 +17,7 @@ int	ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-int ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int cnt;
 
@@ -17,8 +29,8 @@ int ft_putstr(char *s)
 
 int	ft_put_blank(int width, int zero_pad)
 {
-	char *blank;
-	int i;
+	char	*blank;
+	int		i;
 
 	if (width < 1)
 		return (0);

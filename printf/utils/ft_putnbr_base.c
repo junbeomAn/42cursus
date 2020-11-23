@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 11:10:31 by junbeoman         #+#    #+#             */
+/*   Updated: 2020/11/23 11:11:02 by junbeoman        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-void	zero_init(char *arr)
+void			zero_init(char *arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 127)
@@ -12,10 +24,10 @@ void	zero_init(char *arr)
 	}
 }
 
-unsigned int		is_valid_base(char *base)
+unsigned int	is_valid_base(char *base)
 {
-	char	ascii[127];
-	unsigned int		i;
+	char			ascii[127];
+	unsigned int	i;
 
 	i = 0;
 	zero_init(ascii);
@@ -33,11 +45,12 @@ unsigned int		is_valid_base(char *base)
 	return (i);
 }
 
-int	base_convert(intptr_t nbr, char *base, unsigned int len)
+int				base_convert(intptr_t nbr, char *base, unsigned int len)
 {
-	intptr_t 	div;
-	intptr_t 	mod;
-	int		ret;
+	intptr_t	div;
+	intptr_t	mod;
+	int			ret;
+
 	if (!nbr)
 		return (0);
 	ret = 0;
@@ -50,9 +63,9 @@ int	base_convert(intptr_t nbr, char *base, unsigned int len)
 	return (ret);
 }
 
-int	ft_putnbr_base(intptr_t nbr, char *base)
+int				ft_putnbr_base(intptr_t nbr, char *base)
 {
-	unsigned int len;
+	unsigned int	len;
 
 	len = is_valid_base(base);
 	if (!len)

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_width.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 11:12:51 by junbeoman         #+#    #+#             */
+/*   Updated: 2020/11/23 11:12:52 by junbeoman        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-int handle_width(const char *fmt, int i, t_fmtstr *t, va_list vl)
+int	handle_width(const char *fmt, int i, t_fmtstr *t, va_list vl)
 {
 	while (('0' <= fmt[i] && fmt[i] <= '9') || fmt[i] == '*')
 	{
