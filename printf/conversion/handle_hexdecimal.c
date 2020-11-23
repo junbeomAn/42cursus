@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:23:38 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 12:56:22 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 17:09:10 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,15 @@ int			handle_hexdecimal(va_list vl, t_fmtstr *t, int ret, char x)
 
 	ud = (unsigned int)va_arg(vl, unsigned int);
 	str_num = ft_itoa_base(ud, 16);
-	if (is_left_aligned(t))
-		ret += view_l_align(t, str_num, x);
+	if (ft_memcmp(str_num, "0", 1) == 0 && t->precision == 0)
+		ret += ft_put_blank(t->width, 0);
 	else
-		ret += view_r_align(t, str_num, x);
+	{
+		if (is_left_aligned(t))
+			ret += view_l_align(t, str_num, x);
+		else
+			ret += view_r_align(t, str_num, x);
+	}
 	free(str_num);
 	return (ret);
 }
