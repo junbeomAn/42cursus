@@ -6,19 +6,19 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 10:38:52 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 20:48:37 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/24 00:45:25 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void init_info(t_fmtstr *t)
+void	init_info(t_fmtstr *t)
 {
 	ft_bzero(t, sizeof(t_fmtstr));
 	t->precision = -1;
 }
 
-int	handle_fmt_string(const char *fmt, t_fmtstr *t, va_list vl)
+int		handle_fmt_string(const char *fmt, t_fmtstr *t, va_list vl)
 {
 	int	ret;
 	int	i;
@@ -43,7 +43,7 @@ int	handle_fmt_string(const char *fmt, t_fmtstr *t, va_list vl)
 	return (ret);
 }
 
-int	ft_printf(const char *fmt, ...)
+int		ft_printf(const char *fmt, ...)
 {
 	va_list		vl;
 	t_fmtstr	*t;
