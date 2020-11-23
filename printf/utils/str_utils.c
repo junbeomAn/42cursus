@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:11:09 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 11:11:10 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 19:01:32 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int		is_empty_str(const char *str)
 {
 	if (!str[0])
-	{
-		write(1, "", 1);
 		return (1);
-	}
 	return (0);
 }
 
