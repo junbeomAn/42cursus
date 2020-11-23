@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 10:38:52 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 16:18:15 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 20:48:37 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_printf(const char *fmt, ...)
 		return (-1);
 	init_info(t);
 	if (is_empty_str(fmt))
-		return (-1);
+		return (0);
 	if (fmtlen == 1 && fmt[0] == '%')
 		return (-1);
 	ret = handle_fmt_string(fmt, t, vl);
