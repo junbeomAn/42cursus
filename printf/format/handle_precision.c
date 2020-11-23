@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:12:56 by junbeoman         #+#    #+#             */
-/*   Updated: 2020/11/23 11:20:31 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/11/23 20:22:25 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	handle_precision(const char *fmt, int i, t_fmtstr *t, va_list vl)
 			t->precision = va_arg(vl, int);
 		else
 			t->precision = (t->precision * 10) + (fmt[i] - '0');
+		if (t->precision < 0 && t->zero_pad_ignrd == 1)
+			t->zero_pad = 1;
 		i++;
 	}
 	return (i);
