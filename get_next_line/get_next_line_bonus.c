@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juan <juan@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:38:53 by juan              #+#    #+#             */
-/*   Updated: 2020/10/25 20:51:42 by juan             ###   ########.fr       */
+/*   Updated: 2020/11/25 21:10:01 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,18 @@ char	*get_first_line(char *record)
 char	*update_record(char *record)
 {
 	int		i;
+	char	*temp;
 
 	i = 0;
 	if (!record)
 		return (ft_strdup("\0"));
+	temp = record;
 	i = find_first_lb(record);
 	if (record[i] == '\0')
 		return (ft_strdup("\0"));
-	return (ft_strdup(record + i + 1));
+	record = ft_strdup(record + i + 1);
+	free(temp);
+	return (record);
 }
 
 int		get_next_line(int fd, char **line)
@@ -69,7 +73,6 @@ int		get_next_line(int fd, char **line)
 	static char		*rec[OPEN_MAX];
 	char			*buf;
 	int				res;
-	char			*temp;
 
 	if (!line || fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX <= 0)
 		return (-1);
@@ -82,11 +85,13 @@ int		get_next_line(int fd, char **line)
 		rec[fd] = ft_strjoin(rec[fd], buf);
 	}
 	free(buf);
-	if (res == -1)
-		return (-1);
 	*line = get_first_line(rec[fd]);
-	temp = rec[fd];
 	rec[fd] = update_record(rec[fd]);
-	free(temp);
-	return (res == 0 ? 0 : 1);
+	if (res == 0 || res == -1)
+	{
+		free(rec[fd]);
+		rec[fd] = NULL;
+		return (res);
+	}
+	return (1);
 }
