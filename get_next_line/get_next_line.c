@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:36:52 by juan              #+#    #+#             */
-/*   Updated: 2020/12/01 23:30:18 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/12/02 00:24:56 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,11 @@ char	*update_record(char *record)
 		return (ft_strdup("\0"));
 	i = find_first_lb(record);
 	if (record[i] == '\0')
+	{
+		free(record);
+		record = NULL;
 		return (ft_strdup("\0"));
+	}
 	res = ft_strdup(record + i + 1);
 	free(record);
 	record = NULL;
