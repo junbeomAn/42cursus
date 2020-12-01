@@ -6,7 +6,7 @@
 /*   By: junbeoman <junbeoman@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 20:38:53 by juan              #+#    #+#             */
-/*   Updated: 2020/11/25 21:10:01 by junbeoman        ###   ########.fr       */
+/*   Updated: 2020/12/02 01:37:22 by junbeoman        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,22 @@ char	*get_first_line(char *record)
 char	*update_record(char *record)
 {
 	int		i;
-	char	*temp;
+	char	*res;
 
 	i = 0;
 	if (!record)
 		return (ft_strdup("\0"));
-	temp = record;
 	i = find_first_lb(record);
 	if (record[i] == '\0')
+	{
+		free(record);
+		record = NULL;
 		return (ft_strdup("\0"));
-	record = ft_strdup(record + i + 1);
-	free(temp);
-	return (record);
+	}
+	res = ft_strdup(record + i + 1);
+	free(record);
+	record = NULL;
+	return (res);
 }
 
 int		get_next_line(int fd, char **line)
